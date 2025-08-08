@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { TodoContext } from "../contexts/contexts";
-import { Button, ListGroup, ListGroupItem } from "react-bootstrap";
+import { ListGroup, ListGroupItem } from "react-bootstrap";
 import type { TodoListProps } from "../../types";
 import TodoItem from "../TodoItem/TodoItem";
 
-
+//todoList item that just renders a list of todos and does nothing with them, but has a button that clear
+//completed todos using context
 export default function TodoList({todos} : TodoListProps) {
     const {clearCompleted} = useContext(TodoContext);
 
@@ -13,7 +14,7 @@ export default function TodoList({todos} : TodoListProps) {
             <TodoItem todo={todo}/>
         </ListGroupItem>
     )
-
+    //making varoables to count completed and not completed todo for display
     const completedTodos = todos.filter(todo =>
         todo.completed === true
     )
@@ -29,9 +30,9 @@ export default function TodoList({todos} : TodoListProps) {
     return(
         <ListGroup>
             {todosList}
-            <ListGroupItem>
+            <ListGroupItem className="d-flex align-items-center justify-content-between">
                 <span>{nonCompletedTodos.length} items left</span>
-                <Button onClick={handleClear}>Clear Completed ({completedTodos.length})</Button>
+                <button style={{color:'blue', background: 'white'}} onClick={handleClear}>Clear Completed ({completedTodos.length})</button>
             </ListGroupItem>
         </ListGroup>
     )

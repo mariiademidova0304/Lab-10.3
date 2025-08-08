@@ -3,9 +3,10 @@ import { createContext } from "react";
 
 
 export const TodoContext = createContext<TodoContextType>({
-addToDo: () => {},
-toggleTodo: () => {},
-deleteTodo: () => {},
-editTodo: () => {},
-clearCompleted: () => {}
+    todoList: [],
+    addToDo: () => { },
+    toggleTodo: () => { },
+    deleteTodo: () => { },
+    editTodo: () => { },
+    clearCompleted: () => { }
 })

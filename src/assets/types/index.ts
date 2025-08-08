@@ -5,6 +5,7 @@ export interface Todo {
 }
 
 export interface TodoContextType {
+    todoList: Todo[];
     addToDo: (text: string) => void;
     toggleTodo: (id: number) => void;
     deleteTodo: (id: number) => void;
@@ -19,3 +20,4 @@ export interface TodoItemProps {
 export interface TodoListProps {
     todos : Todo[];
 }
+

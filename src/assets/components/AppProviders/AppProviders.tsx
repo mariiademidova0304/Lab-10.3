@@ -49,7 +49,7 @@ export default function AppProviders({ children }: AppProviderProps) {
         )
     }
 
-    const todoListValue = useMemo(() => ({ addToDo, toggleTodo, deleteTodo, editTodo, clearCompleted}), [todoList])
+    const todoListValue = useMemo(() => ({todoList, addToDo, toggleTodo, deleteTodo, editTodo, clearCompleted}), [todoList])
 
     return(
         <TodoContext.Provider value={todoListValue}>
