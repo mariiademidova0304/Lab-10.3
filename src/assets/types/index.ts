@@ -15,3 +15,7 @@ export interface TodoContextType {
 export interface TodoItemProps {
     todo : Todo;
 }
+
+export interface TodoListProps {
+    todos : Todo[];
+}
