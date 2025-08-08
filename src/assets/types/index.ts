@@ -1,7 +1,7 @@
 export interface Todo {
-    id: number,
-    text: string,
-    completed: boolean
+    id: number;
+    text: string;
+    completed: boolean;
 }
 
 export interface TodoContextType {
@@ -10,4 +10,8 @@ export interface TodoContextType {
     deleteTodo: (id: number) => void;
     editTodo: (id: number, newText: string) => void;
     clearCompleted: () => void;
+}
+
+export interface TodoItemProps {
+    todo : Todo;
 }
