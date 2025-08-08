@@ -25,7 +25,9 @@ export default function TodoItem({ todo }: TodoItemProps) {
         <Container>
             <Row>
                 <Col>
+                {/**needs a checked status that depends on completed and gets the same value */}
                     <input type="radio" checked={todo.completed} onClick={handleToggle} />
+                      {/**style depends on completed and swithces between line-through styling and none */}
                     <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>{todo.text}</span>
                 </Col>
                 <Col>

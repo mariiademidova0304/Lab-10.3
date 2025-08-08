@@ -14,7 +14,7 @@ export default function TodoList({todos} : TodoListProps) {
             <TodoItem todo={todo}/>
         </ListGroupItem>
     )
-    //making varoables to count completed and not completed todo for display
+    //making variables to count completed and not completed todo for display
     const completedTodos = todos.filter(todo =>
         todo.completed === true
     )
