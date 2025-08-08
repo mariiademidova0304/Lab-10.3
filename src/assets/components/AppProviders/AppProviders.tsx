@@ -1,27 +1,15 @@
 import { TodoContext } from "../contexts/contexts";
-import type { TodoContextType, Todo } from "../../types";
-import { useState, type ReactNode } from "react";
+import type { Todo } from "../../types";
+import { useMemo, useState, type ReactNode } from "react";
 
-
-// export const TodoContext = createContext<TodoContextType>({
-// newTodo: null,
-// addToDo: (text: string) => {},
-// toggleTodo: (id: string | number) => {},
-// deleteTodo: (id: string | number) => {},
-// editTodo: (id: string | number, newText: string) => {},
-// clearCompleted: () => {}
-// })
-
-// export interface Todo {
-//     id: string | number,
-//     text: string,
-//     completed: boolean
-// }
 
 interface AppProviderProps {
     children: ReactNode;
 }
 
+//creating providers for children, initially had newTodo in the context, but decided to let it be local to
+//my todoItem (especially since the instructions say this is what needs to be context)
+// mostly copying code from lesson 6
 export default function AppProviders({ children }: AppProviderProps) {
     const [todoList, setTodoList] = useState<Todo[]>([]);
 
@@ -60,4 +48,12 @@ export default function AppProviders({ children }: AppProviderProps) {
             prev.filter(todo => todo.completed === false)
         )
     }
+
+    const todoListValue = useMemo(() => ({addToDo, toggleTodo, deleteTodo, editTodo, clearCompleted}), [todoList])
+
+    return(
+        <TodoContext.Provider value={todoListValue}>
+            {children}
+        </TodoContext.Provider>
+    )
 }

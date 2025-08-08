@@ -5,7 +5,6 @@ export interface Todo {
 }
 
 export interface TodoContextType {
-    newTodo : Todo | null,
     addToDo: (text: string) => void;
     toggleTodo: (id: number) => void;
     deleteTodo: (id: number) => void;

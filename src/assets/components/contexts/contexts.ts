@@ -1,4 +1,4 @@
-import type { TodoContextType, Todo } from "../../types";
+import type { TodoContextType } from "../../types";
 import { createContext } from "react";
 
 
@@ -12,7 +12,6 @@ import { createContext } from "react";
 // }
 
 export const TodoContext = createContext<TodoContextType>({
-newTodo: null,
 addToDo: (text: string) => {},
 toggleTodo: (id: number) => {},
 deleteTodo: (id: number) => {},
